@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="3 Irmãos Cabeleireiros — Salão familiar tradicional em Americanópolis, São Paulo. Cortes masculinos e femininos, barba, coloração e tratamentos capilares.">
+  <meta name="theme-color" content="#1A1A1A">
+  <meta property="og:title" content="3 Irmãos Cabeleireiros | Salão em Americanópolis, SP">
+  <meta property="og:description" content="Tradição familiar, qualidade que você confia. Agende seu horário pelo WhatsApp.">
+  <meta property="og:type" content="website">
+  <title>3 Irmãos Cabeleireiros | Salão em Americanópolis, SP</title>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "3 Irmãos Cabeleireiros",
+    "description": "Salão de cabeleireiro familiar tradicional em Americanópolis, São Paulo.",
+    "url": "https://www.instagram.com/3irmaos_cabeleireiros/",
+    "telephone": ["+551156236092", "+551156229565"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Yervant Kissajikian, 3819",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "postalCode": "04428-010",
+      "addressCountry": "BR"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "09:00",
+      "closes": "19:00"
+    }],
+    "sameAs": ["https://www.instagram.com/3irmaos_cabeleireiros/"]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            charcoal: '#1A1A1A',
+            'charcoal-deep': '#0F0F0F',
+            gold: '#C9A227',
+            'gold-light': '#E8C547',
+            'gold-soft': '#D4AF37',
+            amber: '#B8860B',
+            'warm-gray': '#4A4A4A',
+            'warm-gray-light': '#6B6B6B',
+            cream: '#FAF8F5',
+            'off-white': '#F5F3EF',
+          },
+          fontFamily: {
+            display: ['Cormorant Garamond', 'Georgia', 'serif'],
+            body: ['Outfit', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            'gold-glow': '0 4px 24px rgba(201, 162, 39, 0.25)',
+            'card': '0 4px 20px rgba(0, 0, 0, 0.06)',
+            'card-hover': '0 12px 40px rgba(0, 0, 0, 0.12)',
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.7s ease-out forwards',
+            'fade-in': 'fadeIn 0.5s ease-out forwards',
+          },
+          keyframes: {
+            fadeUp: {
+              '0%': { opacity: '0', transform: 'translateY(24px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(15, 15, 15, 0.92) 0%, rgba(26, 26, 26, 0.75) 50%, rgba(15, 15, 15, 0.55) 100%);
+    }
+    .gold-line {
+      background: linear-gradient(90deg, transparent, #C9A227, transparent);
+    }
+    .nav-scrolled {
+      background: rgba(250, 248, 245, 0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(201, 162, 39, 0.15);
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(201, 162, 39, 0.4), transparent 60%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .service-card:hover::before {
+      opacity: 1;
+    }
+    #mobile-menu.open {
+      transform: translateX(0);
+    }
+    #mobile-menu-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #booking-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #booking-modal.open .modal-panel {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+    .form-input {
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: #C9A227;
+      box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.15);
+    }
+    .gallery-item .gallery-caption {
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+    .gallery-item:hover .gallery-caption {
+      transform: translateY(0);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+    .faq-item.open .faq-content {
+      max-height: 400px;
+    }
+    .nav-top .nav-logo-main { color: #FAF8F5; }
+    .nav-top .nav-logo-sub { color: #E8C547; }
+    .nav-top .nav-link { color: rgba(250, 248, 245, 0.85); }
+    .nav-top .nav-link:hover { color: #E8C547; }
+    .nav-top .nav-cta {
+      background: #C9A227;
+      color: #1A1A1A;
+    }
+    .nav-top .nav-cta:hover {
+      background: #E8C547;
+    }
+    .nav-top #menu-toggle { background: rgba(250, 248, 245, 0.15); }
+    .nav-top #bar1, .nav-top #bar2, .nav-top #bar3 { background: #FAF8F5; }
+    .faq-item.open .faq-icon {
+      transform: rotate(180deg);
+    }
+    .step-connector {
+      background: linear-gradient(90deg, #C9A227 0%, rgba(201, 162, 39, 0.2) 100%);
+    }
+    @media (max-width: 1023px) {
+      .step-connector {
+        background: linear-gradient(180deg, #C9A227 0%, rgba(201, 162, 39, 0.2) 100%);
+      }
+    }
+    html {
+      scroll-padding-top: 5rem;
+    }
+    .form-success {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+    #booking-modal.open ~ #wa-float {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body class="font-body text-warm-gray bg-cream antialiased">
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header id="navbar" class="nav-top fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <!-- Logo -->
+        <a href="#inicio" class="group flex flex-col leading-none">
+          <span class="nav-logo-main font-display text-2xl sm:text-3xl font-bold text-charcoal tracking-wide group-hover:text-gold transition-colors duration-300">
+            3 IRMÃOS
+          </span>
+          <span class="nav-logo-sub text-[10px] sm:text-xs font-semibold tracking-[0.35em] text-gold uppercase mt-0.5">
+            Cabeleireiros
+          </span>
+        </a>
+
+        <!-- Desktop Menu -->
+        <ul class="hidden lg:flex items-center gap-8">
+          <li><a href="#inicio" class="nav-link text-sm font-medium text-warm-gray hover:text-gold transition-colors duration-200">Início</a></li>
+          <li><a href="#servicos" class="nav-link text-sm font-medium text-warm-gray hover:text-gold transition-colors duration-200">Serviços</a></li>
+          <li><a href="#sobre" class="nav-link text-sm font-medium text-warm-gray hover:text-gold transition-colors duration-200">Sobre Nós</a></li>
+          <li><a href="#galeria" class="nav-link text-sm font-medium text-warm-gray hover:text-gold transition-colors duration-200">Galeria</a></li>
+          <li><a href="#como-funciona" class="nav-link text-sm font-medium text-warm-gray hover:text-gold transition-colors duration-200">Como Funciona</a></li>
+          <li><a href="#agendar" class="nav-link text-sm font-medium text-warm-gray hover:text-gold transition-colors duration-200">Contato</a></li>
+        </ul>
+
+        <!-- CTA + Hamburger -->
+        <div class="flex items-center gap-3">
+          <button
+            onclick="openModal()"
+            class="nav-cta hidden sm:inline-flex items-center gap-2 bg-charcoal text-cream text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-gold hover:text-charcoal transition-all duration-300 hover:shadow-gold-glow active:scale-95"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            Agendar Horário
+          </button>
+
+          <button
+            id="menu-toggle"
+            class="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-full bg-off-white hover:bg-gold/10 transition-colors duration-200"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+          >
+            <span class="hamburger-icon flex flex-col gap-1.5 w-5">
+              <span class="block h-0.5 w-full bg-charcoal transition-all duration-300 origin-center" id="bar1"></span>
+              <span class="block h-0.5 w-full bg-charcoal transition-all duration-300" id="bar2"></span>
+              <span class="block h-0.5 w-full bg-charcoal transition-all duration-300 origin-center" id="bar3"></span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-charcoal/60 z-40 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden" onclick="closeMobileMenu()"></div>
+
+  <!-- Mobile Menu Panel -->
+  <div id="mobile-menu" class="fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-cream z-50 transform translate-x-full transition-transform duration-300 ease-out lg:hidden shadow-2xl">
+    <div class="flex flex-col h-full p-6 pt-24">
+      <ul class="flex flex-col gap-1">
+        <li><a href="#inicio" onclick="closeMobileMenu()" class="mobile-nav-link block py-3 px-4 text-base font-medium text-warm-gray hover:text-gold hover:bg-off-white rounded-lg transition-all">Início</a></li>
+        <li><a href="#servicos" onclick="closeMobileMenu()" class="mobile-nav-link block py-3 px-4 text-base font-medium text-warm-gray hover:text-gold hover:bg-off-white rounded-lg transition-all">Serviços</a></li>
+        <li><a href="#sobre" onclick="closeMobileMenu()" class="mobile-nav-link block py-3 px-4 text-base font-medium text-warm-gray hover:text-gold hover:bg-off-white rounded-lg transition-all">Sobre Nós</a></li>
+        <li><a href="#galeria" onclick="closeMobileMenu()" class="mobile-nav-link block py-3 px-4 text-base font-medium text-warm-gray hover:text-gold hover:bg-off-white rounded-lg transition-all">Galeria</a></li>
+        <li><a href="#como-funciona" onclick="closeMobileMenu()" class="mobile-nav-link block py-3 px-4 text-base font-medium text-warm-gray hover:text-gold hover:bg-off-white rounded-lg transition-all">Como Funciona</a></li>
+        <li><a href="#agendar" onclick="closeMobileMenu()" class="mobile-nav-link block py-3 px-4 text-base font-medium text-warm-gray hover:text-gold hover:bg-off-white rounded-lg transition-all">Contato</a></li>
+      </ul>
+      <div class="mt-auto pt-6 border-t border-gold/20">
+        <button onclick="closeMobileMenu(); openModal();" class="w-full bg-charcoal text-cream font-semibold py-3.5 rounded-full hover:bg-gold hover:text-charcoal transition-all duration-300">
+          Agendar Horário
+        </button>
+        <a href="https://wa.me/5511978515917" target="_blank" rel="noopener" class="mt-3 flex items-center justify-center gap-2 w-full border border-gold/40 text-warm-gray font-medium py-3 rounded-full hover:border-gold hover:text-gold transition-all">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ==================== HERO ==================== -->
+    <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden">
+      <!-- Background Image -->
+      <div class="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=80&auto=format&fit=crop"
+          alt="Ambiente acolhedor do salão 3 Irmãos Cabeleireiros"
+          class="w-full h-full object-cover"
+          loading="eager"
+        >
+        <div class="absolute inset-0 hero-gradient"></div>
+      </div>
+
+      <!-- Decorative elements -->
+      <div class="absolute top-1/4 right-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 left-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20 w-full">
+        <div class="max-w-3xl">
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 rounded-full px-4 py-1.5 mb-6 animate-fade-in">
+            <span class="w-2 h-2 bg-gold rounded-full animate-pulse"></span>
+            <span class="text-gold-light text-xs sm:text-sm font-medium tracking-wide">Tradição familiar desde 1986 · Americanópolis, SP</span>
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-cream leading-[1.1] mb-6 animate-fade-up" style="animation-delay: 0.1s">
+            Tradição de família,<br>
+            <span class="text-gold-light">qualidade</span> que você confia
+          </h1>
+
+          <p class="text-lg sm:text-xl text-cream/80 leading-relaxed mb-10 max-w-xl animate-fade-up" style="animation-delay: 0.2s">
+            No coração de Americanópolis, cuidamos do seu visual com carinho, experiência e o acolhimento de sempre. Venha se sentir em casa.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 animate-fade-up" style="animation-delay: 0.3s">
+            <button
+              onclick="openModal()"
+              class="inline-flex items-center justify-center gap-2 bg-gold text-charcoal font-semibold px-8 py-4 rounded-full hover:bg-gold-light transition-all duration-300 hover:shadow-gold-glow active:scale-95 text-base"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Agendar Horário
+            </button>
+            <a
+              href="https://wa.me/5511978515917?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20no%203%20Irmãos%20Cabeleireiros."
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center gap-2 border-2 border-cream/30 text-cream font-semibold px-8 py-4 rounded-full hover:border-gold hover:text-gold transition-all duration-300 active:scale-95 text-base"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Falar no WhatsApp
+            </a>
+          </div>
+
+          <!-- Quick info -->
+          <div class="mt-12 flex flex-wrap gap-6 text-cream/60 text-sm animate-fade-up" style="animation-delay: 0.4s">
+            <a href="tel:+551156236092" class="flex items-center gap-2 hover:text-gold transition-colors">
+              <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              (11) 5623-6092
+            </a>
+            <span class="hidden sm:inline text-cream/30">|</span>
+            <a href="tel:+551156229565" class="flex items-center gap-2 hover:text-gold transition-colors">
+              (11) 5622-9565
+            </a>
+            <span class="hidden sm:inline text-cream/30">|</span>
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              Americanópolis · Vila Missionária
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-cream/40">
+        <span class="text-xs tracking-widest uppercase">Role</span>
+        <div class="w-px h-10 bg-gradient-to-b from-gold/60 to-transparent animate-pulse"></div>
+      </div>
+    </section>
+
+    <!-- ==================== SOBRE ==================== -->
+    <section id="sobre" class="py-20 sm:py-28 bg-off-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+          <!-- Image -->
+          <div class="reveal relative order-2 lg:order-1">
+            <div class="relative rounded-2xl overflow-hidden shadow-card">
+              <img
+                src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=800&q=80&auto=format&fit=crop"
+                alt="Equipe profissional e ambiente acolhedor do salão"
+                class="w-full aspect-[4/5] object-cover"
+                loading="lazy"
+              >
+              <div class="absolute inset-0 bg-gradient-to-t from-charcoal/30 to-transparent"></div>
+            </div>
+            <!-- Floating card -->
+            <div class="absolute -bottom-6 -right-4 sm:right-6 bg-charcoal text-cream rounded-2xl p-5 shadow-card-hover max-w-[200px]">
+              <p class="font-display text-3xl font-bold text-gold">38+</p>
+              <p class="text-sm text-cream/70 mt-1">anos cuidando da comunidade</p>
+            </div>
+            <!-- Decorative frame -->
+            <div class="absolute -top-4 -left-4 w-full h-full border-2 border-gold/20 rounded-2xl -z-10"></div>
+          </div>
+
+          <!-- Text -->
+          <div class="reveal order-1 lg:order-2">
+            <span class="inline-block text-gold text-sm font-semibold tracking-[0.2em] uppercase mb-4">Sobre Nós</span>
+            <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal leading-tight mb-6">
+              Uma história de família,<br>passada de geração em geração
+            </h2>
+            <div class="w-16 h-0.5 gold-line mb-8"></div>
+
+            <p class="text-warm-gray-light text-base sm:text-lg leading-relaxed mb-5">
+              O <strong class="text-charcoal font-semibold">3 Irmãos Cabeleireiros</strong> nasceu do sonho de três irmãos que transformaram paixão em profissão. Há décadas, servimos Americanópolis e Vila Missionária com o mesmo compromisso: tratar cada cliente como parte da nossa família.
+            </p>
+            <p class="text-warm-gray-light text-base sm:text-lg leading-relaxed mb-5">
+              Nossa equipe é formada por profissionais experientes, atenciosos e em constante atualização. Aqui você encontra um ambiente limpo, confortável e acolhedor — aquele lugar onde você chega e já se sente em casa.
+            </p>
+            <p class="text-warm-gray-light text-base sm:text-lg leading-relaxed mb-8">
+              Do corte clássico à transformação completa, cada atendimento é personalizado. Porque entendemos que confiar o seu visual a alguém exige mais do que técnica: exige confiança.
+            </p>
+
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="https://www.instagram.com/3irmaos_cabeleireiros/"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-2 text-sm font-medium text-charcoal hover:text-gold transition-colors"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.85-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                @3irmaos_cabeleireiros
+              </a>
+              <a
+                href="https://maps.google.com/?q=Av.+Yervant+Kissajikian,+3819+-+Americanópolis,+São+Paulo"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-2 text-sm font-medium text-charcoal hover:text-gold transition-colors"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                Ver no mapa
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SERVIÇOS ==================== -->
+    <section id="servicos" class="py-20 sm:py-28 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+          <span class="inline-block text-gold text-sm font-semibold tracking-[0.2em] uppercase mb-4">Nossos Serviços</span>
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal mb-5">
+            Tudo para o seu visual
+          </h2>
+          <p class="text-warm-gray-light text-base sm:text-lg">
+            Serviços completos para homens e mulheres, com a qualidade e o cuidado que só um salão de família oferece.
+          </p>
+          <div class="w-16 h-0.5 gold-line mx-auto mt-6"></div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+          <!-- Card 1 -->
+          <div class="reveal service-card relative bg-white rounded-2xl p-8 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 group">
+            <div class="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-gold/20 transition-colors duration-300">
+              <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.121 14.121L19 19M4.879 4.879L9.758 9.758M16 8a4 4 0 11-8 0 4 4 0 018 0zM4 20l2-2m10-10l2-2"/></svg>
+            </div>
+            <h3 class="font-display text-xl font-bold text-charcoal mb-3">Cortes Masculinos</h3>
+            <p class="text-warm-gray-light text-sm leading-relaxed">Do clássico ao moderno: degradê, social, navalhado e muito mais. Acabamento impecável com atenção aos detalhes.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="reveal service-card relative bg-white rounded-2xl p-8 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 group" style="transition-delay: 0.05s">
+            <div class="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-gold/20 transition-colors duration-300">
+              <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+            </div>
+            <h3 class="font-display text-xl font-bold text-charcoal mb-3">Cortes Femininos</h3>
+            <p class="text-warm-gray-light text-sm leading-relaxed">Cortes que valorizam seu estilo: camadas, franjas, repicados e modelagens personalizadas para cada formato de rosto.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="reveal service-card relative bg-white rounded-2xl p-8 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 group" style="transition-delay: 0.1s">
+            <div class="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-gold/20 transition-colors duration-300">
+              <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h3 class="font-display text-xl font-bold text-charcoal mb-3">Barba e Bigode</h3>
+            <p class="text-warm-gray-light text-sm leading-relaxed">Aparar, desenhar e finalizar com navalha ou máquina. Hidratação e tratamento para uma barba sempre alinhada.</p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="reveal service-card relative bg-white rounded-2xl p-8 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 group" style="transition-delay: 0.15s">
+            <div class="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-gold/20 transition-colors duration-300">
+              <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+            </div>
+            <h3 class="font-display text-xl font-bold text-charcoal mb-3">Coloração e Tintura</h3>
+            <p class="text-warm-gray-light text-sm leading-relaxed">Cobertura de brancos, mechas, luzes e colorações completas. Produtos de qualidade para um resultado natural e duradouro.</p>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="reveal service-card relative bg-white rounded-2xl p-8 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 group" style="transition-delay: 0.2s">
+            <div class="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-gold/20 transition-colors duration-300">
+              <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            </div>
+            <h3 class="font-display text-xl font-bold text-charcoal mb-3">Tratamentos Capilares</h3>
+            <p class="text-warm-gray-light text-sm leading-relaxed">Hidratação, reconstrução e cauterização para cabelos saudáveis, brilhantes e com vida. Cuidado que seu cabelo merece.</p>
+          </div>
+
+          <!-- Card 6 - CTA -->
+          <div class="reveal bg-charcoal rounded-2xl p-8 flex flex-col justify-center items-center text-center group hover:bg-charcoal-deep transition-colors duration-300" style="transition-delay: 0.25s">
+            <p class="font-display text-2xl font-bold text-cream mb-3">Não sabe qual escolher?</p>
+            <p class="text-cream/60 text-sm mb-6">Nossa equipe te orienta com carinho. Fale com a gente!</p>
+            <a
+              href="https://wa.me/5511978515917?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20do%203%20Irmãos."
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-2 bg-gold text-charcoal font-semibold px-6 py-3 rounded-full hover:bg-gold-light transition-all duration-300 hover:shadow-gold-glow active:scale-95 text-sm"
+            >
+              Consultar no WhatsApp
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== POR QUE ESCOLHER ==================== -->
+    <section id="diferenciais" class="py-20 sm:py-28 bg-charcoal relative overflow-hidden">
+      <!-- Background pattern -->
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute top-0 left-1/4 w-96 h-96 border border-gold rounded-full"></div>
+        <div class="absolute bottom-0 right-1/4 w-64 h-64 border border-gold rounded-full"></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+          <span class="inline-block text-gold text-sm font-semibold tracking-[0.2em] uppercase mb-4">Por que nos escolher</span>
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-cream mb-5">
+            O que nos torna especiais
+          </h2>
+          <p class="text-cream/60 text-base sm:text-lg">
+            Mais do que um salão — um lugar de confiança, tradição e cuidado genuíno com cada cliente.
+          </p>
+          <div class="w-16 h-0.5 gold-line mx-auto mt-6"></div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+          <div class="reveal group bg-charcoal-deep/50 border border-gold/10 rounded-2xl p-8 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+            <div class="w-12 h-12 rounded-full bg-gold/15 flex items-center justify-center mb-5 group-hover:bg-gold/25 transition-colors">
+              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3 class="font-display text-xl font-bold text-cream mb-3">Tradição familiar de qualidade</h3>
+            <p class="text-cream/55 text-sm leading-relaxed">Décadas de experiência passadas de geração em geração, com o mesmo padrão de excelência que construiu nossa reputação no bairro.</p>
+          </div>
+
+          <div class="reveal group bg-charcoal-deep/50 border border-gold/10 rounded-2xl p-8 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+            <div class="w-12 h-12 rounded-full bg-gold/15 flex items-center justify-center mb-5 group-hover:bg-gold/25 transition-colors">
+              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </div>
+            <h3 class="font-display text-xl font-bold text-cream mb-3">Profissionais experientes</h3>
+            <p class="text-cream/55 text-sm leading-relaxed">Equipe atenciosa e qualificada, que ouve você, entende suas preferências e entrega resultados que superam expectativas.</p>
+          </div>
+
+          <div class="reveal group bg-charcoal-deep/50 border border-gold/10 rounded-2xl p-8 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+            <div class="w-12 h-12 rounded-full bg-gold/15 flex items-center justify-center mb-5 group-hover:bg-gold/25 transition-colors">
+              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            </div>
+            <h3 class="font-display text-xl font-bold text-cream mb-3">Atendimento acolhedor</h3>
+            <p class="text-cream/55 text-sm leading-relaxed">Cada cliente é único. Oferecemos um atendimento personalizado, com aquele jeito familiar que faz você voltar sempre.</p>
+          </div>
+
+          <div class="reveal group bg-charcoal-deep/50 border border-gold/10 rounded-2xl p-8 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+            <div class="w-12 h-12 rounded-full bg-gold/15 flex items-center justify-center mb-5 group-hover:bg-gold/25 transition-colors">
+              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            </div>
+            <h3 class="font-display text-xl font-bold text-cream mb-3">Ambiente limpo e confortável</h3>
+            <p class="text-cream/55 text-sm leading-relaxed">Espaço organizado, higienizado e pensado para seu conforto. Um lugar onde você relaxa enquanto cuidamos de você.</p>
+          </div>
+
+          <div class="reveal group bg-charcoal-deep/50 border border-gold/10 rounded-2xl p-8 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1 sm:col-span-2 lg:col-span-2">
+            <div class="flex flex-col sm:flex-row sm:items-start gap-5">
+              <div class="w-12 h-12 rounded-full bg-gold/15 flex items-center justify-center shrink-0 group-hover:bg-gold/25 transition-colors">
+                <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-display text-xl font-bold text-cream mb-3">Compromisso com a excelência</h3>
+                <p class="text-cream/55 text-sm leading-relaxed">Sua satisfação é nossa prioridade. Trabalhamos com dedicação em cada detalhe — do primeiro atendimento ao resultado final — para que você saia renovado e feliz.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== GALERIA ==================== -->
+    <section id="galeria" class="py-20 sm:py-28 bg-off-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+          <span class="inline-block text-gold text-sm font-semibold tracking-[0.2em] uppercase mb-4">Nosso Trabalho</span>
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal mb-5">Transformações que falam por si</h2>
+          <p class="text-warm-gray-light text-base sm:text-lg">Cada corte é feito com carinho e atenção aos detalhes. Veja um pouco do nosso dia a dia no salão.</p>
+          <div class="w-16 h-0.5 gold-line mx-auto mt-6"></div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+          <div class="reveal gallery-item relative rounded-2xl overflow-hidden group col-span-2 row-span-2 aspect-square sm:aspect-auto sm:min-h-[420px]">
+            <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=800&q=80&auto=format&fit=crop" alt="Corte masculino degradê" class="w-full h-full object-cover transition-transform duration-500" loading="lazy">
+            <div class="gallery-caption absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/90 to-transparent p-4 sm:p-6">
+              <p class="text-cream text-sm font-medium">Degradê preciso · Acabamento impecável</p>
+            </div>
+          </div>
+          <div class="reveal gallery-item relative rounded-2xl overflow-hidden group aspect-square">
+            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80&auto=format&fit=crop" alt="Corte feminino com camadas" class="w-full h-full object-cover transition-transform duration-500" loading="lazy">
+            <div class="gallery-caption absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/90 to-transparent p-4">
+              <p class="text-cream text-xs sm:text-sm font-medium">Corte feminino · Camadas e movimento</p>
+            </div>
+          </div>
+          <div class="reveal gallery-item relative rounded-2xl overflow-hidden group aspect-square">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&q=80&auto=format&fit=crop" alt="Barba e bigode alinhados" class="w-full h-full object-cover transition-transform duration-500" loading="lazy">
+            <div class="gallery-caption absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/90 to-transparent p-4">
+              <p class="text-cream text-xs sm:text-sm font-medium">Barba e bigode · Navalha e máquina</p>
+            </div>
+          </div>
+          <div class="reveal gallery-item relative rounded-2xl overflow-hidden group aspect-square">
+            <img src="https://images.unsplash.com/photo-1562322560-ab82cd0ff437?w=600&q=80&auto=format&fit=crop" alt="Coloração capilar" class="w-full h-full object-cover transition-transform duration-500" loading="lazy">
+            <div class="gallery-caption absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/90 to-transparent p-4">
+              <p class="text-cream text-xs sm:text-sm font-medium">Coloração · Resultado natural</p>
+            </div>
+          </div>
+          <div class="reveal gallery-item relative rounded-2xl overflow-hidden group aspect-square">
+            <img src="https://images.unsplash.com/photo-1585747860715-2ba37f7887b2?w=600&q=80&auto=format&fit=crop" alt="Ambiente do salão" class="w-full h-full object-cover transition-transform duration-500" loading="lazy">
+            <div class="gallery-caption absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/90 to-transparent p-4">
+              <p class="text-cream text-xs sm:text-sm font-medium">Nosso salão · Ambiente acolhedor</p>
+            </div>
+          </div>
+          <div class="reveal gallery-item relative rounded-2xl overflow-hidden group col-span-2 aspect-[2/1]">
+            <img src="https://images.unsplash.com/photo-1599351431202-1a0ac112aff8?w=900&q=80&auto=format&fit=crop" alt="Corte moderno masculino" class="w-full h-full object-cover transition-transform duration-500" loading="lazy">
+            <div class="gallery-caption absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/90 to-transparent p-4 sm:p-6">
+              <p class="text-cream text-sm font-medium">Estilo moderno · Corte social e navalhado</p>
+            </div>
+          </div>
+          <div class="reveal gallery-item relative rounded-2xl overflow-hidden group aspect-square">
+            <img src="https://images.unsplash.com/photo-1633681926026-4c48aba0efd9?w=600&q=80&auto=format&fit=crop" alt="Tratamento capilar" class="w-full h-full object-cover transition-transform duration-500" loading="lazy">
+            <div class="gallery-caption absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/90 to-transparent p-4">
+              <p class="text-cream text-xs sm:text-sm font-medium">Tratamento · Cabelos saudáveis</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12 reveal">
+          <a href="https://www.instagram.com/3irmaos_cabeleireiros/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-charcoal hover:text-gold transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.85-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            Ver mais no Instagram @3irmaos_cabeleireiros
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== COMO FUNCIONA ==================== -->
+    <section id="como-funciona" class="py-20 sm:py-28 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+          <span class="inline-block text-gold text-sm font-semibold tracking-[0.2em] uppercase mb-4">Como Funciona</span>
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal mb-5">Simples, rápido e sem complicação</h2>
+          <p class="text-warm-gray-light text-base sm:text-lg">Do agendamento ao resultado final — tudo pensado para você ter a melhor experiência.</p>
+          <div class="w-16 h-0.5 gold-line mx-auto mt-6"></div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative">
+          <div class="hidden lg:block absolute top-12 left-[12.5%] right-[12.5%] h-0.5 step-connector"></div>
+
+          <div class="reveal relative text-center">
+            <div class="relative z-10 w-24 h-24 mx-auto bg-charcoal rounded-full flex items-center justify-center mb-6 shadow-gold-glow">
+              <span class="font-display text-3xl font-bold text-gold">1</span>
+            </div>
+            <h3 class="font-display text-xl font-bold text-charcoal mb-3">Agende seu horário</h3>
+            <p class="text-warm-gray-light text-sm leading-relaxed">Pelo WhatsApp, telefone ou formulário aqui no site. Escolha o melhor dia e horário para você.</p>
+          </div>
+
+          <div class="reveal relative text-center">
+            <div class="relative z-10 w-24 h-24 mx-auto bg-charcoal rounded-full flex items-center justify-center mb-6 shadow-gold-glow">
+              <span class="font-display text-3xl font-bold text-gold">2</span>
+            </div>
+            <h3 class="font-display text-xl font-bold text-charcoal mb-3">Avaliação personalizada</h3>
+            <p class="text-warm-gray-light text-sm leading-relaxed">Nossos profissionais conversam com você, entendem o que deseja e indicam a melhor opção.</p>
+          </div>
+
+          <div class="reveal relative text-center">
+            <div class="relative z-10 w-24 h-24 mx-auto bg-charcoal rounded-full flex items-center justify-center mb-6 shadow-gold-glow">
+              <span class="font-display text-3xl font-bold text-gold">3</span>
+            </div>
+            <h3 class="font-display text-xl font-bold text-charcoal mb-3">Serviço com qualidade</h3>
+            <p class="text-warm-gray-light text-sm leading-relaxed">Cada detalhe é cuidado com atenção, técnica e os melhores produtos. Você relaxa, a gente cuida.</p>
+          </div>
+
+          <div class="reveal relative text-center">
+            <div class="relative z-10 w-24 h-24 mx-auto bg-gold rounded-full flex items-center justify-center mb-6 shadow-gold-glow">
+              <span class="font-display text-3xl font-bold text-charcoal">4</span>
+            </div>
+            <h3 class="font-display text-xl font-bold text-charcoal mb-3">Visual renovado</h3>
+            <p class="text-warm-gray-light text-sm leading-relaxed">Saia satisfeito, com confiança renovada e aquele sorriso de quem sabe que ficou no ponto.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== DEPOIMENTOS ==================== -->
+    <section id="depoimentos" class="py-20 sm:py-28 bg-off-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+          <span class="inline-block text-gold text-sm font-semibold tracking-[0.2em] uppercase mb-4">Depoimentos</span>
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal mb-5">O que nossos clientes dizem</h2>
+          <p class="text-warm-gray-light text-base sm:text-lg">A opinião de quem já passou por aqui é o que mais nos orgulha.</p>
+          <div class="w-16 h-0.5 gold-line mx-auto mt-6"></div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="reveal bg-white rounded-2xl p-6 sm:p-8 shadow-card hover:shadow-card-hover transition-shadow duration-300">
+            <div class="flex gap-1 mb-4">
+              <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="text-warm-gray-light text-sm leading-relaxed mb-6">"Vou no 3 Irmãos há mais de 10 anos. É de família pra família — sempre me tratam bem, o corte fica perfeito e o preço é justo. Não troco por nada."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center font-semibold text-gold text-sm">MS</div>
+              <div>
+                <p class="text-charcoal font-semibold text-sm">Maria Silva</p>
+                <p class="text-warm-gray-light text-xs">Cliente há 10 anos · Americanópolis</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal bg-white rounded-2xl p-6 sm:p-8 shadow-card hover:shadow-card-hover transition-shadow duration-300">
+            <div class="flex gap-1 mb-4">
+              <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="text-warm-gray-light text-sm leading-relaxed mb-6">"Levo meu filho e meu pai aqui. Os três cortam com a gente. Ambiente limpo, gente educada e sempre sai tudo certinho. Salão de verdade, sabe?"</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center font-semibold text-gold text-sm">JP</div>
+              <div>
+                <p class="text-charcoal font-semibold text-sm">João Pereira</p>
+                <p class="text-warm-gray-light text-xs">Morador de Americanópolis</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal bg-white rounded-2xl p-6 sm:p-8 shadow-card hover:shadow-card-hover transition-shadow duration-300">
+            <div class="flex gap-1 mb-4">
+              <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="text-warm-gray-light text-sm leading-relaxed mb-6">"Fiz coloração e corte aqui e amei o resultado. Me explicaram tudo antes, foram super atenciosas e o cabelo ficou lindo. Já marquei a próxima visita!"</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center font-semibold text-gold text-sm">AC</div>
+              <div>
+                <p class="text-charcoal font-semibold text-sm">Ana Costa</p>
+                <p class="text-warm-gray-light text-xs">Vila Missionária</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal bg-white rounded-2xl p-6 sm:p-8 shadow-card hover:shadow-card-hover transition-shadow duration-300">
+            <div class="flex gap-1 mb-4">
+              <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="text-warm-gray-light text-sm leading-relaxed mb-6">"Barba com navalha aqui é outro nível. Profissionais de verdade, sem pressa. Chego, converso, relaxo e saio renovado. Recomendo demais!"</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center font-semibold text-gold text-sm">CM</div>
+              <div>
+                <p class="text-charcoal font-semibold text-sm">Carlos Mendes</p>
+                <p class="text-warm-gray-light text-xs">Cliente frequente · Americanópolis</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section id="faq" class="py-20 sm:py-28 bg-cream">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 reveal">
+          <span class="inline-block text-gold text-sm font-semibold tracking-[0.2em] uppercase mb-4">Dúvidas Frequentes</span>
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal mb-5">Perguntas que recebemos</h2>
+          <p class="text-warm-gray-light text-base sm:text-lg">Tire suas dúvidas antes de vir. Se precisar de mais informações, é só chamar no WhatsApp.</p>
+          <div class="w-16 h-0.5 gold-line mx-auto mt-6"></div>
+        </div>
+
+        <div class="space-y-3 reveal">
+          <div class="faq-item bg-white rounded-2xl shadow-card overflow-hidden border border-transparent hover:border-gold/20 transition-colors">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left" aria-expanded="false">
+              <span class="font-semibold text-charcoal text-sm sm:text-base">Preciso agendar horário ou posso ir direto?</span>
+              <svg class="faq-icon w-5 h-5 text-gold shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content px-5 sm:px-6">
+              <p class="text-warm-gray-light text-sm leading-relaxed pb-5 sm:pb-6">Recomendamos agendar pelo WhatsApp ou telefone para garantir seu horário, principalmente nos finais de semana. Mas se tiver vaga, atendemos por ordem de chegada também. É só ligar antes!</p>
+            </div>
+          </div>
+
+          <div class="faq-item bg-white rounded-2xl shadow-card overflow-hidden border border-transparent hover:border-gold/20 transition-colors">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left" aria-expanded="false">
+              <span class="font-semibold text-charcoal text-sm sm:text-base">Quanto tempo demora um corte masculino?</span>
+              <svg class="faq-icon w-5 h-5 text-gold shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content px-5 sm:px-6">
+              <p class="text-warm-gray-light text-sm leading-relaxed pb-5 sm:pb-6">Um corte masculino leva em média de 30 a 45 minutos, dependendo do estilo. Se incluir barba, reserve mais uns 20 minutos. Não tem pressa — fazemos com calma e qualidade.</p>
+            </div>
+          </div>
+
+          <div class="faq-item bg-white rounded-2xl shadow-card overflow-hidden border border-transparent hover:border-gold/20 transition-colors">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left" aria-expanded="false">
+              <span class="font-semibold text-charcoal text-sm sm:text-base">Vocês fazem barba com navalha?</span>
+              <svg class="faq-icon w-5 h-5 text-gold shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content px-5 sm:px-6">
+              <p class="text-warm-gray-light text-sm leading-relaxed pb-5 sm:pb-6">Sim! Fazemos aparo, desenho e acabamento com navalha e máquina. Também oferecemos hidratação da barba para deixar macia e bem cuidada.</p>
+            </div>
+          </div>
+
+          <div class="faq-item bg-white rounded-2xl shadow-card overflow-hidden border border-transparent hover:border-gold/20 transition-colors">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left" aria-expanded="false">
+              <span class="font-semibold text-charcoal text-sm sm:text-base">Quanto tempo leva uma coloração?</span>
+              <svg class="faq-icon w-5 h-5 text-gold shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content px-5 sm:px-6">
+              <p class="text-warm-gray-light text-sm leading-relaxed pb-5 sm:pb-6">Depende do serviço: cobertura de brancos leva cerca de 1h30, mechas ou luzes podem levar de 2 a 3 horas. Na avaliação, informamos o tempo exato para você se programar.</p>
+            </div>
+          </div>
+
+          <div class="faq-item bg-white rounded-2xl shadow-card overflow-hidden border border-transparent hover:border-gold/20 transition-colors">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left" aria-expanded="false">
+              <span class="font-semibold text-charcoal text-sm sm:text-base">Qual o horário de funcionamento?</span>
+              <svg class="faq-icon w-5 h-5 text-gold shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content px-5 sm:px-6">
+              <p class="text-warm-gray-light text-sm leading-relaxed pb-5 sm:pb-6">Funcionamos de segunda a sábado, das 9h às 19h. Aos domingos estamos fechados. Nos feriados, confirme pelo WhatsApp antes de vir.</p>
+            </div>
+          </div>
+
+          <div class="faq-item bg-white rounded-2xl shadow-card overflow-hidden border border-transparent hover:border-gold/20 transition-colors">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left" aria-expanded="false">
+              <span class="font-semibold text-charcoal text-sm sm:text-base">Aceitam cartão e PIX?</span>
+              <svg class="faq-icon w-5 h-5 text-gold shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content px-5 sm:px-6">
+              <p class="text-warm-gray-light text-sm leading-relaxed pb-5 sm:pb-6">Sim! Aceitamos dinheiro, PIX, cartão de débito e crédito. Pergunte na hora do pagamento sobre parcelamento, se precisar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== AGENDAMENTO ==================== -->
+    <section id="agendar" class="py-20 sm:py-28 bg-charcoal relative overflow-hidden">
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-gold rounded-full"></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div class="reveal">
+            <span class="inline-block text-gold text-sm font-semibold tracking-[0.2em] uppercase mb-4">Agende Agora</span>
+            <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-cream leading-tight mb-6">
+              Pronto para renovar<br>seu visual?
+            </h2>
+            <p class="text-cream/70 text-base sm:text-lg leading-relaxed mb-8">
+              Preencha o formulário e confirme pelo WhatsApp. Respondemos rápido e com aquele atendimento de sempre — familiar e acolhedor.
+            </p>
+            <div class="space-y-4 text-cream/60 text-sm">
+              <a href="tel:+551156236092" class="flex items-center gap-3 hover:text-gold transition-colors">
+                <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                (11) 5623-6092 · (11) 5622-9565
+              </a>
+              <p class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                Av. Yervant Kissajikian, 3819 — Americanópolis, São Paulo - SP
+              </p>
+              <p class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                Seg a Sáb · 9h às 19h
+              </p>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <div id="main-form-wrapper" class="bg-cream rounded-2xl p-6 sm:p-8 shadow-card-hover">
+              <form id="main-booking-form" class="space-y-4" novalidate>
+                <div>
+                  <label for="main-nome" class="block text-sm font-medium text-charcoal mb-1.5">Nome completo *</label>
+                  <input type="text" id="main-nome" name="nome" required placeholder="Seu nome" class="form-input w-full px-4 py-3 rounded-xl border border-warm-gray/20 bg-white text-charcoal text-sm placeholder:text-warm-gray-light/50">
+                </div>
+                <div>
+                  <label for="main-whatsapp" class="block text-sm font-medium text-charcoal mb-1.5">WhatsApp *</label>
+                  <input type="tel" id="main-whatsapp" name="whatsapp" required placeholder="(11) 99999-9999" class="form-input w-full px-4 py-3 rounded-xl border border-warm-gray/20 bg-white text-charcoal text-sm placeholder:text-warm-gray-light/50">
+                </div>
+                <div>
+                  <label for="main-servico" class="block text-sm font-medium text-charcoal mb-1.5">Serviço desejado *</label>
+                  <select id="main-servico" name="servico" required class="form-input w-full px-4 py-3 rounded-xl border border-warm-gray/20 bg-white text-charcoal text-sm">
+                    <option value="" disabled selected>Selecione um serviço</option>
+                    <option value="Corte Masculino">Corte Masculino</option>
+                    <option value="Corte Feminino">Corte Feminino</option>
+                    <option value="Barba e Bigode">Barba e Bigode</option>
+                    <option value="Coloração e Tintura">Coloração e Tintura</option>
+                    <option value="Tratamento Capilar">Tratamento Capilar</option>
+                    <option value="Outro">Outro</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="main-mensagem" class="block text-sm font-medium text-charcoal mb-1.5">Mensagem / Preferência de horário</label>
+                  <textarea id="main-mensagem" name="mensagem" rows="3" placeholder="Ex: Prefiro sábado de manhã, por volta das 10h" class="form-input w-full px-4 py-3 rounded-xl border border-warm-gray/20 bg-white text-charcoal text-sm placeholder:text-warm-gray-light/50 resize-none"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-charcoal text-cream font-semibold py-4 rounded-full hover:bg-gold hover:text-charcoal transition-all duration-300 hover:shadow-gold-glow active:scale-[0.98]">
+                  Enviar solicitação
+                </button>
+              </form>
+
+              <div id="main-form-success" class="hidden form-success text-center py-6">
+                <div class="w-16 h-16 bg-gold/15 rounded-full flex items-center justify-center mx-auto mb-5">
+                  <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <h3 class="font-display text-2xl font-bold text-charcoal mb-2">Solicitação enviada!</h3>
+                <p class="text-warm-gray-light text-sm mb-6">Agora é só confirmar pelo WhatsApp. Clicou, enviou — a gente responde rapidinho!</p>
+                <a id="main-wa-link" href="#" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 w-full bg-[#25D366] text-white font-semibold py-4 rounded-full hover:opacity-90 transition-all active:scale-[0.98]">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  Confirmar no WhatsApp
+                </a>
+                <button type="button" onclick="resetMainForm()" class="mt-4 text-sm text-warm-gray-light hover:text-gold transition-colors">Enviar outra solicitação</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-charcoal-deep border-t border-gold/10 py-12 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <div class="sm:col-span-2 lg:col-span-1">
+          <a href="#inicio" class="inline-flex flex-col leading-none mb-4">
+            <span class="font-display text-2xl font-bold text-cream tracking-wide">3 IRMÃOS</span>
+            <span class="text-[10px] font-semibold tracking-[0.35em] text-gold uppercase mt-0.5">Cabeleireiros</span>
+          </a>
+          <p class="text-cream/50 text-sm leading-relaxed">Tradição familiar em Americanópolis. Cuidando do seu visual com carinho desde 1986.</p>
+        </div>
+        <div>
+          <h4 class="text-cream font-semibold text-sm mb-4">Contato</h4>
+          <ul class="space-y-2 text-sm text-cream/50">
+            <li><a href="tel:+551156236092" class="hover:text-gold transition-colors">(11) 5623-6092</a></li>
+            <li><a href="tel:+551156229565" class="hover:text-gold transition-colors">(11) 5622-9565</a></li>
+            <li><a href="https://wa.me/5511978515917" target="_blank" rel="noopener" class="hover:text-gold transition-colors">(11) 97851-5917</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-cream font-semibold text-sm mb-4">Endereço</h4>
+          <p class="text-sm text-cream/50 leading-relaxed">
+            Av. Yervant Kissajikian, 3819<br>
+            Americanópolis, São Paulo - SP<br>
+            CEP 04428-010
+          </p>
+          <a href="https://maps.google.com/?q=Av.+Yervant+Kissajikian,+3819+-+Americanópolis,+São+Paulo" target="_blank" rel="noopener" class="inline-block mt-2 text-sm text-gold hover:underline">Como chegar →</a>
+        </div>
+        <div>
+          <h4 class="text-cream font-semibold text-sm mb-4">Horário</h4>
+          <ul class="space-y-1 text-sm text-cream/50">
+            <li>Segunda a Sábado</li>
+            <li>9h às 19h</li>
+            <li class="text-cream/30">Domingo — Fechado</li>
+          </ul>
+          <a href="https://www.instagram.com/3irmaos_cabeleireiros/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 mt-4 text-sm text-cream/50 hover:text-gold transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.85-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            @3irmaos_cabeleireiros
+          </a>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-gold/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cream/30">
+        <p>© 2026 3 Irmãos Cabeleireiros. Todos os direitos reservados.</p>
+        <a href="#inicio" class="hover:text-gold transition-colors">Voltar ao topo ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL AGENDAMENTO ==================== -->
+  <div id="booking-modal" class="fixed inset-0 z-[60] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="absolute inset-0 bg-charcoal/70 backdrop-blur-sm" onclick="closeModal()"></div>
+    <div class="modal-panel relative bg-cream rounded-2xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-y-auto p-6 sm:p-8 transform scale-95 translate-y-4 opacity-0 transition-all duration-300">
+      <button onclick="closeModal()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-off-white transition-colors text-warm-gray z-10" aria-label="Fechar">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div id="modal-form-wrapper">
+        <span class="inline-block text-gold text-xs font-semibold tracking-[0.2em] uppercase mb-3">Agendamento</span>
+        <h3 id="modal-title" class="font-display text-2xl font-bold text-charcoal mb-1">Agende seu horário</h3>
+        <p class="text-warm-gray-light text-sm mb-6">Preencha abaixo e confirme pelo WhatsApp. Respondemos rapidinho!</p>
+
+        <form id="modal-booking-form" class="space-y-4" novalidate>
+          <div>
+            <label for="modal-nome" class="block text-sm font-medium text-charcoal mb-1.5">Nome completo *</label>
+            <input type="text" id="modal-nome" name="nome" required placeholder="Seu nome" class="form-input w-full px-4 py-3 rounded-xl border border-warm-gray/20 bg-white text-charcoal text-sm placeholder:text-warm-gray-light/50">
+          </div>
+          <div>
+            <label for="modal-whatsapp" class="block text-sm font-medium text-charcoal mb-1.5">WhatsApp *</label>
+            <input type="tel" id="modal-whatsapp" name="whatsapp" required placeholder="(11) 99999-9999" class="form-input w-full px-4 py-3 rounded-xl border border-warm-gray/20 bg-white text-charcoal text-sm placeholder:text-warm-gray-light/50">
+          </div>
+          <div>
+            <label for="modal-servico" class="block text-sm font-medium text-charcoal mb-1.5">Serviço desejado *</label>
+            <select id="modal-servico" name="servico" required class="form-input w-full px-4 py-3 rounded-xl border border-warm-gray/20 bg-white text-charcoal text-sm">
+              <option value="" disabled selected>Selecione um serviço</option>
+              <option value="Corte Masculino">Corte Masculino</option>
+              <option value="Corte Feminino">Corte Feminino</option>
+              <option value="Barba e Bigode">Barba e Bigode</option>
+              <option value="Coloração e Tintura">Coloração e Tintura</option>
+              <option value="Tratamento Capilar">Tratamento Capilar</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+          <div>
+            <label for="modal-mensagem" class="block text-sm font-medium text-charcoal mb-1.5">Mensagem / Preferência de horário</label>
+            <textarea id="modal-mensagem" name="mensagem" rows="3" placeholder="Ex: Prefiro sábado de manhã" class="form-input w-full px-4 py-3 rounded-xl border border-warm-gray/20 bg-white text-charcoal text-sm placeholder:text-warm-gray-light/50 resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-charcoal text-cream font-semibold py-4 rounded-full hover:bg-gold hover:text-charcoal transition-all duration-300 hover:shadow-gold-glow active:scale-[0.98]">
+            Enviar solicitação
+          </button>
+        </form>
+        <p class="text-warm-gray-light/60 text-xs mt-4 text-center">Ou ligue: <a href="tel:+551156236092" class="text-gold hover:underline">(11) 5623-6092</a></p>
+      </div>
+
+      <div id="modal-form-success" class="hidden form-success text-center py-4">
+        <div class="w-16 h-16 bg-gold/15 rounded-full flex items-center justify-center mx-auto mb-5">
+          <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <h3 class="font-display text-2xl font-bold text-charcoal mb-2">Tudo certo!</h3>
+        <p class="text-warm-gray-light text-sm mb-6">Clique abaixo para confirmar sua solicitação no WhatsApp.</p>
+        <a id="modal-wa-link" href="#" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 w-full bg-[#25D366] text-white font-semibold py-4 rounded-full hover:opacity-90 transition-all active:scale-[0.98]">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Confirmar no WhatsApp
+        </a>
+        <button type="button" onclick="resetModalForm()" class="mt-4 text-sm text-warm-gray-light hover:text-gold transition-colors">Nova solicitação</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== FLOATING WHATSAPP ==================== -->
+  <a
+    id="wa-float"
+    href="https://wa.me/5511978515917"
+    target="_blank"
+    rel="noopener"
+    class="fixed bottom-6 right-6 z-40 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300 hover:shadow-xl"
+    aria-label="WhatsApp"
+  >
+    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    // ── Navbar scroll effect ──
+    const navbar = document.getElementById('navbar');
+    function updateNavbar() {
+      const scrolled = window.scrollY > 50;
+      navbar.classList.toggle('nav-scrolled', scrolled);
+      navbar.classList.toggle('nav-top', !scrolled);
+    }
+    window.addEventListener('scroll', updateNavbar);
+    updateNavbar();
+
+    // ── Mobile menu ──
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileOverlay = document.getElementById('mobile-menu-overlay');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    const bar3 = document.getElementById('bar3');
+    let menuOpen = false;
+
+    function toggleMobileMenu() {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      mobileOverlay.classList.toggle('open', menuOpen);
+      menuToggle.setAttribute('aria-expanded', menuOpen);
+      document.body.style.overflow = menuOpen ? 'hidden' : '';
+      bar1.style.transform = menuOpen ? 'rotate(45deg) translateY(8px)' : '';
+      bar2.style.opacity = menuOpen ? '0' : '1';
+      bar3.style.transform = menuOpen ? 'rotate(-45deg) translateY(-8px)' : '';
+    }
+
+    function closeMobileMenu() {
+      if (!menuOpen) return;
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      mobileOverlay.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      bar1.style.transform = '';
+      bar2.style.opacity = '1';
+      bar3.style.transform = '';
+    }
+
+    menuToggle.addEventListener('click', toggleMobileMenu);
+
+    // ── Modal ──
+    const bookingModal = document.getElementById('booking-modal');
+
+    function openModal() {
+      bookingModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      bookingModal.classList.remove('open');
+      if (!menuOpen) document.body.style.overflow = '';
+      setTimeout(resetModalForm, 300);
+    }
+
+    function resetModalForm() {
+      const form = document.getElementById('modal-booking-form');
+      form.reset();
+      form.classList.remove('hidden');
+      document.getElementById('modal-form-wrapper').classList.remove('hidden');
+      document.getElementById('modal-form-success').classList.add('hidden');
+    }
+
+    function resetMainForm() {
+      const form = document.getElementById('main-booking-form');
+      form.reset();
+      form.classList.remove('hidden');
+      document.getElementById('main-form-success').classList.add('hidden');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+        closeMobileMenu();
+      }
+    });
+
+    // ── WhatsApp message builder ──
+    const WA_NUMBER = '5511978515917';
+
+    function buildWhatsAppUrl(data) {
+      const msg = [
+        'Olá! Gostaria de agendar um horário no *3 Irmãos Cabeleireiros*.',
+        '',
+        `*Nome:* ${data.nome}`,
+        `*WhatsApp:* ${data.whatsapp}`,
+        `*Serviço:* ${data.servico}`,
+        `*Preferência:* ${data.mensagem || 'Não informado'}`,
+      ].join('\n');
+      return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+    }
+
+    document.getElementById('main-booking-form').addEventListener('submit', function handler(e) {
+      e.preventDefault();
+      const form = this;
+      const data = {
+        nome: form.nome.value.trim(),
+        whatsapp: form.whatsapp.value.trim(),
+        servico: form.servico.value,
+        mensagem: form.mensagem.value.trim(),
+      };
+      if (!data.nome || !data.whatsapp || !data.servico) {
+        form.reportValidity();
+        return;
+      }
+      document.getElementById('main-wa-link').href = buildWhatsAppUrl(data);
+      form.classList.add('hidden');
+      document.getElementById('main-form-success').classList.remove('hidden');
+    });
+
+    document.getElementById('modal-booking-form').addEventListener('submit', function handler(e) {
+      e.preventDefault();
+      const form = this;
+      const data = {
+        nome: form.nome.value.trim(),
+        whatsapp: form.whatsapp.value.trim(),
+        servico: form.servico.value,
+        mensagem: form.mensagem.value.trim(),
+      };
+      if (!data.nome || !data.whatsapp || !data.servico) {
+        form.reportValidity();
+        return;
+      }
+      document.getElementById('modal-wa-link').href = buildWhatsAppUrl(data);
+      document.getElementById('modal-form-wrapper').classList.add('hidden');
+      document.getElementById('modal-form-success').classList.remove('hidden');
+    });
+
+    // ── Phone mask ──
+    function maskPhone(input) {
+      input.addEventListener('input', () => {
+        let v = input.value.replace(/\D/g, '');
+        if (v.length > 11) v = v.slice(0, 11);
+        if (v.length > 6) {
+          input.value = `(${v.slice(0, 2)}) ${v.slice(2, v.length > 10 ? 7 : 6)}${v.length > 10 ? '-' : ''}${v.slice(v.length > 10 ? 7 : 6)}`;
+        } else if (v.length > 2) {
+          input.value = `(${v.slice(0, 2)}) ${v.slice(2)}`;
+        } else if (v.length > 0) {
+          input.value = `(${v}`;
+        }
+      });
+    }
+    ['main-whatsapp', 'modal-whatsapp'].forEach((id) => maskPhone(document.getElementById(id)));
+
+    // ── FAQ accordion ──
+    document.querySelectorAll('.faq-trigger').forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const item = trigger.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach((el) => {
+          el.classList.remove('open');
+          el.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // ── Scroll reveal ──
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    revealElements.forEach((el) => revealObserver.observe(el));
+
+    // ── Active nav link on scroll ──
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach((section) => {
+        const top = section.offsetTop - 120;
+        if (window.scrollY >= top) current = section.getAttribute('id');
+      });
+      navLinks.forEach((link) => {
+        link.classList.toggle('text-gold', link.getAttribute('href') === `#${current}`);
+        link.classList.toggle('text-warm-gray', link.getAttribute('href') !== `#${current}`);
+      });
+    });
+  </script>
+
+</body>
+</html>
