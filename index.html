@@ -156,6 +156,13 @@
     .gallery-item:hover img {
       transform: scale(1.05);
     }
+    .gallery-item img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
     .faq-content {
       max-height: 0;
       overflow: hidden;
@@ -557,6 +564,10 @@
             <p class="text-cream/55 text-sm leading-relaxed">Cada cliente é único. Oferecemos um atendimento personalizado, com aquele jeito familiar que faz você voltar sempre.</p>
           </div>
 
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6 lg:gap-8 mt-6 lg:mt-8 max-w-2xl lg:max-w-3xl mx-auto">
+
           <div class="reveal group bg-charcoal-deep/50 border border-gold/10 rounded-2xl p-8 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
             <div class="w-12 h-12 rounded-full bg-gold/15 flex items-center justify-center mb-5 group-hover:bg-gold/25 transition-colors">
               <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
@@ -565,16 +576,12 @@
             <p class="text-cream/55 text-sm leading-relaxed">Espaço organizado, higienizado e pensado para seu conforto. Um lugar onde você relaxa enquanto cuidamos de você.</p>
           </div>
 
-          <div class="reveal group bg-charcoal-deep/50 border border-gold/10 rounded-2xl p-8 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1 sm:col-span-2 lg:col-span-2">
-            <div class="flex flex-col sm:flex-row sm:items-start gap-5">
-              <div class="w-12 h-12 rounded-full bg-gold/15 flex items-center justify-center shrink-0 group-hover:bg-gold/25 transition-colors">
-                <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-              </div>
-              <div>
-                <h3 class="font-display text-xl font-bold text-cream mb-3">Compromisso com a excelência</h3>
-                <p class="text-cream/55 text-sm leading-relaxed">Sua satisfação é nossa prioridade. Trabalhamos com dedicação em cada detalhe — do primeiro atendimento ao resultado final — para que você saia renovado e feliz.</p>
-              </div>
+          <div class="reveal group bg-charcoal-deep/50 border border-gold/10 rounded-2xl p-8 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1">
+            <div class="w-12 h-12 rounded-full bg-gold/15 flex items-center justify-center mb-5 group-hover:bg-gold/25 transition-colors">
+              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
             </div>
+            <h3 class="font-display text-xl font-bold text-cream mb-3">Compromisso com a excelência</h3>
+            <p class="text-cream/55 text-sm leading-relaxed">Sua satisfação é nossa prioridade. Trabalhamos com dedicação em cada detalhe — do primeiro atendimento ao resultado final — para que você saia renovado e feliz.</p>
           </div>
 
         </div>
@@ -591,47 +598,43 @@
           <div class="w-16 h-0.5 gold-line mx-auto mt-6"></div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-          <div class="reveal gallery-item relative rounded-2xl overflow-hidden group col-span-2 row-span-2 aspect-square sm:aspect-auto sm:min-h-[420px]">
-            <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=800&q=80&auto=format&fit=crop" alt="Corte masculino degradê" class="w-full h-full object-cover transition-transform duration-500" loading="lazy">
-            <div class="gallery-caption absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/90 to-transparent p-4 sm:p-6">
-              <p class="text-cream text-sm font-medium">Degradê preciso · Acabamento impecável</p>
+        <div class="max-w-3xl mx-auto">
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+            <div class="reveal gallery-item relative rounded-xl overflow-hidden group aspect-square">
+              <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=500&q=80&auto=format&fit=crop" alt="Corte masculino degradê" class="transition-transform duration-500" loading="lazy">
+              <div class="gallery-caption absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-charcoal/90 to-transparent p-3">
+                <p class="text-cream text-xs font-medium">Degradê preciso</p>
+              </div>
             </div>
-          </div>
-          <div class="reveal gallery-item relative rounded-2xl overflow-hidden group aspect-square">
-            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80&auto=format&fit=crop" alt="Corte feminino com camadas" class="w-full h-full object-cover transition-transform duration-500" loading="lazy">
-            <div class="gallery-caption absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/90 to-transparent p-4">
-              <p class="text-cream text-xs sm:text-sm font-medium">Corte feminino · Camadas e movimento</p>
+            <div class="reveal gallery-item relative rounded-xl overflow-hidden group aspect-square">
+              <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&q=80&auto=format&fit=crop" alt="Corte feminino com camadas" class="transition-transform duration-500" loading="lazy">
+              <div class="gallery-caption absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-charcoal/90 to-transparent p-3">
+                <p class="text-cream text-xs font-medium">Corte feminino</p>
+              </div>
             </div>
-          </div>
-          <div class="reveal gallery-item relative rounded-2xl overflow-hidden group aspect-square">
-            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&q=80&auto=format&fit=crop" alt="Barba e bigode alinhados" class="w-full h-full object-cover transition-transform duration-500" loading="lazy">
-            <div class="gallery-caption absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/90 to-transparent p-4">
-              <p class="text-cream text-xs sm:text-sm font-medium">Barba e bigode · Navalha e máquina</p>
+            <div class="reveal gallery-item relative rounded-xl overflow-hidden group aspect-square">
+              <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=500&q=80&auto=format&fit=crop" alt="Barba e bigode alinhados" class="transition-transform duration-500" loading="lazy">
+              <div class="gallery-caption absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-charcoal/90 to-transparent p-3">
+                <p class="text-cream text-xs font-medium">Barba e bigode</p>
+              </div>
             </div>
-          </div>
-          <div class="reveal gallery-item relative rounded-2xl overflow-hidden group aspect-square">
-            <img src="https://images.unsplash.com/photo-1562322560-ab82cd0ff437?w=600&q=80&auto=format&fit=crop" alt="Coloração capilar" class="w-full h-full object-cover transition-transform duration-500" loading="lazy">
-            <div class="gallery-caption absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/90 to-transparent p-4">
-              <p class="text-cream text-xs sm:text-sm font-medium">Coloração · Resultado natural</p>
+            <div class="reveal gallery-item relative rounded-xl overflow-hidden group aspect-square">
+              <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=500&q=80&auto=format&fit=crop" alt="Coloração capilar" class="transition-transform duration-500" loading="lazy">
+              <div class="gallery-caption absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-charcoal/90 to-transparent p-3">
+                <p class="text-cream text-xs font-medium">Coloração</p>
+              </div>
             </div>
-          </div>
-          <div class="reveal gallery-item relative rounded-2xl overflow-hidden group aspect-square">
-            <img src="https://images.unsplash.com/photo-1585747860715-2ba37f7887b2?w=600&q=80&auto=format&fit=crop" alt="Ambiente do salão" class="w-full h-full object-cover transition-transform duration-500" loading="lazy">
-            <div class="gallery-caption absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/90 to-transparent p-4">
-              <p class="text-cream text-xs sm:text-sm font-medium">Nosso salão · Ambiente acolhedor</p>
+            <div class="reveal gallery-item relative rounded-xl overflow-hidden group aspect-square">
+              <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=500&q=80&auto=format&fit=crop" alt="Ambiente do salão" class="transition-transform duration-500" loading="lazy">
+              <div class="gallery-caption absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-charcoal/90 to-transparent p-3">
+                <p class="text-cream text-xs font-medium">Nosso salão</p>
+              </div>
             </div>
-          </div>
-          <div class="reveal gallery-item relative rounded-2xl overflow-hidden group col-span-2 aspect-[2/1]">
-            <img src="https://images.unsplash.com/photo-1599351431202-1a0ac112aff8?w=900&q=80&auto=format&fit=crop" alt="Corte moderno masculino" class="w-full h-full object-cover transition-transform duration-500" loading="lazy">
-            <div class="gallery-caption absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/90 to-transparent p-4 sm:p-6">
-              <p class="text-cream text-sm font-medium">Estilo moderno · Corte social e navalhado</p>
-            </div>
-          </div>
-          <div class="reveal gallery-item relative rounded-2xl overflow-hidden group aspect-square">
-            <img src="https://images.unsplash.com/photo-1633681926026-4c48aba0efd9?w=600&q=80&auto=format&fit=crop" alt="Tratamento capilar" class="w-full h-full object-cover transition-transform duration-500" loading="lazy">
-            <div class="gallery-caption absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/90 to-transparent p-4">
-              <p class="text-cream text-xs sm:text-sm font-medium">Tratamento · Cabelos saudáveis</p>
+            <div class="reveal gallery-item relative rounded-xl overflow-hidden group aspect-square">
+              <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=500&q=80&auto=format&fit=crop" alt="Corte moderno masculino" class="transition-transform duration-500" loading="lazy">
+              <div class="gallery-caption absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-charcoal/90 to-transparent p-3">
+                <p class="text-cream text-xs font-medium">Corte moderno</p>
+              </div>
             </div>
           </div>
         </div>
